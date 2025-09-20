@@ -23,7 +23,7 @@ interface ProxyPayload {
   }
   
   function base64UrlDecode(str: string): string {
-    let bease64 = str.replace(".m3u8", "");
+    let base64 = str.replace(".m3u8", "");
     let padded = str.replace(/-/g, '+').replace(/_/g, '/');
     while (padded.length % 4 !== 0) padded += '=';
     const bin = atob(padded);
