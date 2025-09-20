@@ -96,14 +96,12 @@ async function aesCbcDecryptBase64(b64: string, keyStr: string, ivStr: string): 
   let text = new TextDecoder().decode(unpadded);
   return text.replace(/\u0000+$/g, "");
 }
-
 function pickIframeSrc(html: string): string | null {
   const m1 = html.match(/<iframe[^>]*id=["']embedvideo["'][^>]*src=["']([^"']+)["'][^>]*>/i);
   if (m1) return m1[1];
   const m2 = html.match(/<iframe[^>]*src=["']([^"']+)["'][^>]*>/i);
   return m2 ? m2[1] : null;
 }
-
 function parseScriptDataValue(html: string): string | null {
   const m = html.match(/<script[^>]*src=["']\/?assets\/crypto-js\.js["'][^>]*data-value=["']([^"']+)["'][^>]*>/i);
   return m ? m[1] : null;
