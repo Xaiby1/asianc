@@ -2,7 +2,6 @@ interface ProxyPayload {
     u: string;
     h: Record<string, string>;
   }
-  
   function toAbsoluteUrl(urlOrPath: string, base: string): string {
     try {
       if (!urlOrPath) return urlOrPath;
@@ -23,8 +22,8 @@ interface ProxyPayload {
   }
   
   function base64UrlDecode(str: string): string {
-    let base64 = str.replace(".m3u8", "");
-    let padded = str.replace(/-/g, '+').replace(/_/g, '/');
+    let base64 = str.replace('.m3u8', '');
+    let padded = base64.replace(/-/g, '+').replace(/_/g, '/');
     while (padded.length % 4 !== 0) padded += '=';
     const bin = atob(padded);
     const bytes = new Uint8Array(bin.length);
