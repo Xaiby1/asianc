@@ -175,7 +175,7 @@ export async function extractVidbasic(id: string): Promise<Source> {
   if (isHls) {
     const payload = { u: url, h: headers };
     const encoded = base64UrlEncodeString(JSON.stringify(payload));
-    sources.push({ url: `/hls/${encoded}`, quality: 'hls' });
+    sources.push({ url: `/hls/${encoded}.m3u8`, quality: 'hls' });
   } else {
     sources.push({ url, quality: 'auto' });
   }
